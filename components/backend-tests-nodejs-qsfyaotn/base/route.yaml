@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: backend-tests-nodejs-qsfyaotn
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: backend-tests-nodejs-qsfyaotn 
+  name: backend-tests-nodejs-qsfyaotn
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: backend-tests-nodejs-qsfyaotn
+    weight: 100 
